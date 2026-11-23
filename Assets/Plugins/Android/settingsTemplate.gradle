@@ -1,0 +1,25 @@
+pluginManagement {
+    repositories {
+        **ARTIFACTORYREPOSITORY**
+        // Google first: the Android Gradle Plugin lives there, so the build never
+        // depends on the plugin portal / Maven Central answering for it.
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+include ':launcher', ':unityLibrary'
+**INCLUDES**
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        **ARTIFACTORYREPOSITORY**
+        google()
+        mavenCentral()
+        flatDir {
+            dirs "${project(':unityLibrary').projectDir}/libs"
+        }
+    }
+}

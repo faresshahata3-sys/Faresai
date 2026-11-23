@@ -1,10 +1,8 @@
 name: Build Android APK
 
+# Manual only: needs the UNITY_LICENSE / UNITY_EMAIL / UNITY_PASSWORD secrets.
 on:
   workflow_dispatch:
-  push:
-    branches: [main, 'claude/**']
-    paths: ['Assets/**', 'Packages/**', 'ProjectSettings/**', '.github/workflows/build-android.yml']
 
 concurrency:
   group: android-${{ github.ref }}
